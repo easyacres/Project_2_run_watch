@@ -13,20 +13,26 @@ module.exports = function (app) {
         { model: db.Dessert },
         { model: db.Drink },
       ],
-    }).then((dbMenu) => {
-      let menuArr = [];
-      let menuObj = {
-        menu: menuArr,
-      };
-      for (const [key, value] of Object.entries(dbMenu[0])) {
-        if (Array.isArray(value)) {
-          value.forEach((element) => {
-            menuArr.push(element.dataValues);
-          });
+    })
+      .then((dbMenu) => {
+        let menuArr = [];
+        let menuObj = {
+          menu: menuArr,
+        };
+        if (typeof dbMenu === "Array" && dbMenu.length) {
+          for (const [key, value] of Object.entries(dbMenu[0])) {
+            if (Array.isArray(value)) {
+              value.forEach((element) => {
+                menuArr.push(element.dataValues);
+              });
+            }
+          }
         }
-      }
-      res.render("index", menuObj);
-    });
+        res.render("index", menuObj);
+      })
+      .catch((err) => {
+        throw err;
+      });
   });
 
   app.get("/order", (req, res) => {
