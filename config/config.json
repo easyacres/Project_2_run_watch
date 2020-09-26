@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "root",
-    "password": "root",
-    "database": "restaurantdb",
-    "host": "127.0.0.1",
+    "username": "zpbu6ay5s6xx3o9z",
+    "password": "k1okh9aa0073t7z2",
+    "database": "lyw9megupc5fd50j",
+    "host": "sm9j2j5q6c8bpgyq.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
   },
   "test": {
